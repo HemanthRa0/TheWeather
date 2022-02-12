@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            WeatherApp
+        </title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+    </head>
+<body>
+<!-- Background Images -->
+<div class="bg" style="background: url('{{ city_weather.bgimg }}')"></div></div>
+<div class="container">
+    <div class="searchbar">
+        <form action = "" method="POST">
+            {% csrf_token %}
+        <input class="search-text"type="text" name="city" placeholder="name of the city">
+        <button class="search-btn" type="submit">search</button>
+    </form>
+    </div>
+    <!--Weather Widget-->
+    <div class="widget">
+        <div class="left">
+            <img src="{{ city_weather.icon }}" class="icon">
+            <h5 class="weather-status">{{city_weather.description}}</h5>
+        </div>
+        <div class="right">
+        <h5 class="city">{{city_weather.city}}</h5>
+        <h5 class="degree">{{city_weather.temperature}} &#176;c</h5>
+
+    </div>
+</div>
+<!--./End of weather widget-->
+
+</body>
+</html>
